@@ -10,9 +10,11 @@
 
     <context:component-scan base-package="org.jueun.biz"/>
 
+    <!--
     <bean id="userService" class="org.jueun.biz.user.impl.UserServiceImpl">
         <property name="userDAO" ref="userDao" />
     </bean>
 
     <bean id="userDao" class="org.jueun.biz.user.impl.UserDAO" />
+    -->
 </beans>

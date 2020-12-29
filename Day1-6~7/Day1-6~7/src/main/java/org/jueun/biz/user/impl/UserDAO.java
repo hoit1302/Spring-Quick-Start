@@ -2,6 +2,7 @@ package org.jueun.biz.user.impl;
 
 import org.jueun.biz.common.JDBCUtil;
 import org.jueun.biz.user.UserVO;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 
 
 // DAO(Data Access Object)
+@Repository("userDAO")
 public class UserDAO {
     // JDBC 관련 변수
     private Connection conn = null;
@@ -19,6 +21,7 @@ public class UserDAO {
 
     // CRUD 기능의 메소드 구현
     // 회원 등록
+
     public UserVO getUser(UserVO vo) {
         UserVO user = null;
         try {
