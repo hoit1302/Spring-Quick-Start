@@ -6,5 +6,12 @@ CREATE TABLE BOARD (
 	REGDATE datetime default CURRENT_TIMESTAMP,
 	CNT INTEGER(5) default 0
 );
-user:jueun1
+CREATE TABLE USERS (
+	ID varchar(5) PRIMARY KEY,
+	PASSWORD VARCHAR(8),
+	NAME VARCHAR(20),
+	ROLE VARCHAR(5)
+);
+
+user:jueun
 password:jueun
