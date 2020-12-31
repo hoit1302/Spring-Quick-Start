@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/biz/board/impl/BoardDAO.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/biz/board/impl/BoardDAOSpring.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/biz/board/impl/BoardServiceImpl.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/biz/user/impl/UserDAO.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/board/DeleteBoardController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/board/GetBoardController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/board/GetBoardListController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/board/InsertBoardController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/board/UpdateBoardController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/user/LoginController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springbook/view/user/LogoutController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
