@@ -4,6 +4,8 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
+
+    <!-- 클라이언트부터 들어오는 모든 요청을 DispatcherServlet이 받 -->
     <filter>
         <filter-name>characterEncoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -18,10 +20,14 @@
     </filter-mapping>
 
 
+    <!-- ContextLoaderListener 객체는 <context-param> 으로 등록된 contextConfigLocation 파라미터 정보를 읽어
+    스프링 컨테이너를 구동하도록 프로그램 되어 있음
+    개발자가 원하는 곳에 둔 applicationContext.xml 을 잘 읽어들이도록 위치 지정 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
+    <!-- ContextLoaderListener 클래스 등록 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -33,6 +39,9 @@
     init-param으로 contextConfigLocation 지정,
     /WEB-INF/config/원하는_파일_이름.xml
     -->
+
+    <!-- DispatcherServlet : 유일한 서블릿 클래스로서,
+    모든 클라이언트의 요청을 가장 먼저 처리하는 front controller -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

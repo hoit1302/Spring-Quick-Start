@@ -6,8 +6,9 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Service;
 
 @Service
-@Aspect
+@Aspect // Aspect는 Pointcut과 Advice의 결합이다.
 public class BeforeAdvice {
+	// allPointCut()으로 지정한 메소드가 호출될 때, beforeLog() 메소드가 Before 형태로 동작하도록 설정
 	@Before("PointcutCommon.allPointcut()")
 	public void beforeLog(JoinPoint jp){
 		String method = jp.getSignature().getName();

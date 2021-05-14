@@ -17,13 +17,15 @@ public class BoardDAO {
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	// SQL 명령어들
-	private final String BOARD_INSERT1 = "set @mymax := (select max(seq) from board)";
+	private final String BOARD_INSERT1 = "SET @mymax := (SELECT MAX(seq) FROM board)";
 	private final String BOARD_INSERT2 =
-			"insert into board (seq, title, writer, content, cnt, regDate) values (ifnull(@mymax, 0)+1,?,?,?,0,sysdate())";
-	private final String BOARD_UPDATE = "update board set title=?, content=? where seq=?";
-	private final String BOARD_DELETE = "delete from board where seq=?";
-	private final String BOARD_GET = "select * from board where seq=?";
-	private final String BOARD_LIST = "select * from board order by seq desc";
+		"INSERT INTO board (seq, title, writer, content, cnt, regDate) VALUES (ifnull(@mymax, 0)+1,?,?,?,0,sysdate())";
+	private final String BOARD_UPDATE = "UPDATE board SET title=?, content=? WHERE seq=?";
+	private final String BOARD_DELETE = "DELETE board WHERE seq=?";
+	private final String BOARD_GET = "SELECT * FROM board WHERE seq=?";
+	// 조회 시 조회수 업데이트를 위한 sql문. 실행하려면 트랜잭션 read-only 조건을 없애야함.
+//	private final String BOARD_CNT = "UPDATE board SET cnt=cnt+1 WHERE seq=?";
+	private final String BOARD_LIST = "SELECT * FROM board ORDER BY seq DESC";
 
 	// CRUD 기능의 메소드 구현
 	// 글 등록
@@ -36,7 +38,7 @@ public class BoardDAO {
 			stmt = conn.prepareStatement(BOARD_INSERT2);
 			stmt.setString(1, vo.getTitle());
 			stmt.setString(2, vo.getWriter());
-			stmt.setString(3, vo.getContent());
+			stmt.setString(3, vo.getContent().trim());
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,7 +54,7 @@ public class BoardDAO {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_UPDATE);
 			stmt.setString(1, vo.getTitle());
-			stmt.setString(2, vo.getContent());
+			stmt.setString(2, vo.getContent().trim());
 			stmt.setInt(3, vo.getSeq());
 			stmt.executeUpdate();
 		} catch (Exception e) {
@@ -95,6 +97,9 @@ public class BoardDAO {
 				board.setRegDate(rs.getDate("REGDATE"));
 				board.setCnt(rs.getInt("CNT"));
 			}
+//			stmt = conn.prepareStatement(BOARD_CNT);
+//			stmt.setInt(1, vo.getSeq());
+//			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
